@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+   <style>
+    .image{
+        height: 50px; 
+        width: 50px; 
+        position: relative;
+        bottom: -10px;
+    } 
+    .box {
+        background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+   </style>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+  <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                         <img class="image" src="Logo.png" alt="">
+                        </span>
+                        <span class="title">NextWellness</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashbord</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-product">
+                        <span class="icon">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Products<span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-treatment">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Treatments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/record">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">View Appointments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/users">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+             
+                <!--<li>
+                    <a href="/sub">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Subscription</span>
+                    </a>
+                </li>-->  
+
+                <li>
+                    <a href="/book-session">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Book session</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">sign out</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <div class="search">
+                <label for="search">
+                    <input type="text" placeholder="search here">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+            <div class="user">
+                <img src="Logo.png" alt="">
+            </div>
+        </div> 
+        <a href="/reminder" style="text-decoration-line: none;">
+            <div class="box" >
+            <!-- Your content goes here -->
+            <h2 style="color: black;">Reminders</h2>
+            <p style="color: black;">remaining Sessions:- <span id="reminder-total-row-count">0</span></p>
+          </div>
+        </a>
+        <a href="/user-data" style="text-decoration-line: none;">
+            <div class="box">
+                <h2 style="color: black;">Users</h2>
+                <p style="color: black;">Total number of users: <span id="users-total-row-count">0</span></p>
+            </div>
+        </a>
+    
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        // add hovered class to selected list item
+ // Menu Toggle
+ let toggle = document.querySelector(".toggle");
+    let navigation = document.querySelector(".navigation");
+    let main = document.querySelector(".main");
+
+    toggle.onclick = function () {
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+    };
+     
+    document.addEventListener('DOMContentLoaded', function() {
+            const totalRowCount = localStorage.getItem('totalRowCount');
+            if (totalRowCount) {
+                document.getElementById('reminder-total-row-count').textContent = totalRowCount;
+            }
+        });
+
+        // Listen for changes in total row count
+        window.addEventListener('storage', function(event) {
+            if (event.key === 'totalRowCount') {
+                const totalRowCount = event.newValue;
+                document.getElementById('reminder-total-row-count').textContent = totalRowCount;
+            }
+        });
+
+
+    </script>
+    <!--user-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalUserRowCount = localStorage.getItem('totalUserRowCount');
+            if (totalUserRowCount) {
+                document.getElementById('users-total-row-count').textContent = totalUserRowCount;
+            }
+        });
+    
+        // Listen for changes in total user row count
+        window.addEventListener('storage', function(event) {
+            if (event.key === 'totalUserRowCount') {
+                const totalUserRowCount = event.newValue;
+                document.getElementById('users-total-row-count').textContent = totalUserRowCount;
+            }
+        });
+    </script>
+    
+     
+    
+</body>
+</html>

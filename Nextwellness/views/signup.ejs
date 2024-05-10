@@ -1,0 +1,154 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style.css">
+    <title>Sign In</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+          <div class="title login">Login Form</div>
+        </div>
+        <div class="form-container">
+          <div class="form-inner">
+            <form action="/login" method="POST" class="login">
+              <div class="field">
+                <input type="email" placeholder="Email Address" id="log_email" name="log_email" required>
+              </div>
+              <div class="field ">
+                <input type="password" placeholder="Password" id="log_password" name="log_password" required>
+              </div>
+              <div class="field">
+                <div class="btn-layer">
+                  <div> <input type="submit" value="login" id="Login_button"></div>
+                  </div>
+              </div>
+              <div class="field">
+                <div class="btn-layer">
+                  <div>  <a href="/forgot-password" style="color:#777;"></a>  </div>
+                  </div>
+              </div>
+              <div class="pass-link"><a href="/forgot-password" style="color:#777;">Forgot password?</a></div>
+              <div class="signup-link" >Not a member? <a href="/signup">Signup now</a></div>
+
+            
+          </div>
+        </div>
+      </div>
+  
+      
+</body>
+</html>-->
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup Form </title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/login.css">
+        <!-- Google Fonts - Poppins -->
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> 
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+        <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+        <link rel="manifest" href="assets/img/favicons/manifest.json">
+                        
+    </head>
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Sign Up</header>
+                    <form action="/signup" method="POST" class="login"> 
+
+                      <div class="field input-field">
+                        <input type="text" placeholder="Enter name" id="Name" name="Name" required>
+                      </div>
+
+                        <div class="field input-field">
+                          <input type="email" placeholder="Email Address" id="email" name="email" required>
+                        </div>  
+
+                        <div class="field input-field">
+                          <input type="number" placeholder="Enter contact Number" id="ContactNumber" name="ContactNumber" required>
+                        </div>
+
+                        <div class="field input-field">
+                          <input type="date" placeholder="Email Address" id="DOB" name="DOB" required>
+                        </div> 
+
+                        <div class="field input-field">
+                          <input type="text" placeholder="Enter Address" id="Address" name="Address" required>
+                        </div>
+
+                        <div class="field input-field">
+                          <input type="password" placeholder="Password" id="password" name="password" required class="password"> 
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Confirm password" id="confirm_password" required class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+        
+                        </div>
+
+                        <div class="field button-field">
+                            <button>Sign Up</button>
+                        </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="/login" class="link signup-link">Login</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="/auth/google" class="field google">
+                        <img src="/search.png" alt="" class="google-img">
+                        <span>Signup with Google</span>
+                    </a>
+                </div>
+        
+
+            </div>
+            <script>
+                const pwShowHide = document.querySelectorAll(".eye-icon");
+                pwShowHide.forEach(eyeIcon => {
+               eyeIcon.addEventListener("click", () => {
+                   let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+                   
+                   pwFields.forEach(password => {
+                       if(password.type === "password"){
+                           password.type = "text";
+                           eyeIcon.classList.replace("bx-hide", "bx-show");
+                           return;
+                       }
+                       password.type = "password";
+                       eyeIcon.classList.replace("bx-show", "bx-hide");
+                   })
+                   
+               })
+           })      
+         </script>
+        
+    </body>
+</html>

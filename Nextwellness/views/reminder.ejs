@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Cart</title> 
+  <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="product.css">  
+    <style>
+        .image{
+            height: 50px; 
+            width: 50px; 
+            position: relative;
+            bottom: -10px;
+        } 
+        table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            .edit-input {
+                display: none;
+            }  
+            .cancel-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+       </style>
+  </style>
+</head>
+<body> 
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                         <img class="image" src="Logo.png" alt="">
+                        </span>
+                        <span class="title">NextWellness</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashbord</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-product">
+                        <span class="icon">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Products<span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-treatment">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Treatments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/record">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">View Appointments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/users">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+             
+                <!--<li>
+                    <a href="/sub">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Subscription</span>
+                    </a>
+                </li>-->  
+
+                <li>
+                    <a href="/book-session">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Book session</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">sign out</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div>Total:- <span id="total-row-count">0</span></div>
+            <div class="search">
+                <label for="search">
+                    <input type="text" placeholder="search here">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+            <div class="user">
+                <img src="Logo.png" alt="">
+            </div>
+
+        </div>
+        <table id="sessions-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Plan</th>
+                <th>Session Count</th>
+                <th>Remaining Sessions</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Session data will be dynamically added here -->
+            </tbody>
+          </table>        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const sessionsTable = document.getElementById('sessions-table').getElementsByTagName('tbody')[0];
+          const totalRowCountElement = document.getElementById('total-row-count');
+    
+          // Function to add a row to the table
+          function addRowToTable(sessionData) {
+            const newRow = sessionsTable.insertRow();
+            newRow.dataset.email = sessionData.email; // Store email in dataset for later use
+    
+            // Create cells and fill with data
+            Object.values(sessionData).forEach(value => {
+              const cell = newRow.insertCell();
+              cell.textContent = value;
+            });
+    
+            // Create cancel button
+            const cancelBtn = document.createElement('button');
+            cancelBtn.textContent = 'Cancel';
+            cancelBtn.classList.add('cancel-btn');
+            cancelBtn.addEventListener('click', () => {
+              newRow.remove();
+              updateTotalRowCount();
+              updateLocalStorage(); // Update local storage with the new row count
+            });
+            const actionCell = newRow.insertCell();
+            actionCell.appendChild(cancelBtn);
+          }
+    
+          // Function to update total row count
+          function updateTotalRowCount() {
+            totalRowCountElement.textContent = sessionsTable.rows.length;
+            const totalRowCount = sessionsTable.rows.length;
+                  document.getElementById('total-row-count').textContent = totalRowCount; // Display the total row count
+                   localStorage.setItem('totalRowCount', totalRowCount); // Store the total row count in localStorage
+          }
+    
+          // Function to update local storage with current table data
+          function updateLocalStorage() {
+            const data = {};
+            Array.from(sessionsTable.rows).forEach(row => {
+              const email = row.dataset.email;
+              data[email] = Array.from(row.cells).map(cell => cell.textContent);
+            });
+            localStorage.setItem('tableData', JSON.stringify(data));
+          }
+    
+          // Load table data from local storage on page load
+          const storedData = localStorage.getItem('tableData');
+          if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            Object.values(parsedData).forEach(rowData => {
+              addRowToTable({ email: rowData[0], plan: rowData[1], sessionCount: rowData[2], remainingSessions: rowData[3] });
+            });
+            updateTotalRowCount();
+          }
+    
+          // WebSocket connection
+          const socket = new WebSocket('ws://localhost:8080');
+          socket.addEventListener('open', () => {
+            console.log('Connected to WebSocket server');
+          });
+    
+          // Listen for WebSocket messages
+          socket.addEventListener('message', event => {
+            const sessionData = JSON.parse(event.data);
+            addRowToTable(sessionData);
+            updateTotalRowCount();
+            updateLocalStorage(); // Update local storage when new data arrives
+          });
+          
+        });
+      </script>
+    
+</body>
+</html>
+
+
+

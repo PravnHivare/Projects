@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sessions</title>
+</head>
+<body>
+    <h1>User Sessions</h1>
+    <ul>
+        <% sessions.forEach(session => { %>
+            <li><%= session.title %></li> <!-- Assuming session has a 'title' field, replace it with your actual session fields -->
+        <% }); %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cart</title> 
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+    <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+</head>
+<body>
+    <h1>User Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Plan</th>
+                <th>Session Count</th>
+                <th>Remaining Sessions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.email %></td>
+                    <td><%= user.plan %></td>
+                    <td><%= user.sessionCount %></td>
+                    <td><%= user.remainingSessions %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

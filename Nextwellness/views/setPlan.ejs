@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Plan</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="product.css"> 
+    <style>
+        .image {
+            height: 50px;
+            width: 50px;
+            position: relative;
+            bottom: -10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .edit-input {
+            display: none;
+        }
+
+        /* Specific styles for book-session.ejs */
+        /* Adjust as needed to match the styling of userDetails.ejs */
+        form {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .mt-3 {
+            margin-top: 1rem;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .col {
+            flex: 1;
+            padding: 0 5px;
+        }
+        select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333; /* text color */
+}
+
+/* Style the dropdown arrow */
+select::-ms-expand {
+    display: none;
+}
+
+/* Style the dropdown arrow */
+select::-webkit-expand {
+    display: none;
+}
+
+/* Style the options */
+select option {
+    background-color: #fff;
+    color: #333; /* text color */
+}   
+           
+       </style>
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+        <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+        <link rel="manifest" href="assets/img/favicons/manifest.json">
+</head> 
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                         <img class="image" src="Logo.png" alt="">
+                        </span>
+                        <span class="title">NextWellness</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashbord</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-product">
+                        <span class="icon">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Products<span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-treatment">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Treatments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/record">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">View Appointments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/users">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+             
+                <!--<li>
+                    <a href="/sub">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Subscription</span>
+                    </a>
+                </li>-->  
+
+                <li>
+                    <a href="/book-session">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Book session</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">sign out</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <div class="search">
+                <label for="search">
+                    <input type="text" placeholder="search here">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+            <div class="user">
+                <img src="Logo.png" alt="">
+            </div>
+        </div>  
+        <h1 style="text-align: center;">Set Plan for User</h1>
+        <form method="post" action="/set-plan"> 
+            
+              <div class="mb-3 mt-3 row g-9 align-items-center">  
+                <div class="col col-lg-2"><label class="form-label">Enter Email Address</label></div>
+                <div class="col"> <input type="email" id="email" name="email" required></div>
+              </div> 
+
+              <div class="mb-3 mt-3 row g-9 align-items-center">
+                <div class="col col-lg-2"><label class="form-label">Select Plan: </label></div>
+                <div class="col"> <select id="plan" name="plan" required> 
+                    <option value="Basic">Basic</option>
+                    <option value="Standard">Standard</option>
+                    <option value="One Time">One Time</option>
+                </select></div>
+              </div>  
+
+             
+
+              <div class="mb-5 mt-3 align-items-center text-center"> 
+                   <button type="submit" class="btn btn-success">set plan</button>
+              </div>
+        </form> 
+
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        // add hovered class to selected list item
+
+// Menu Toggle
+let toggle = document.querySelector(".toggle");
+let navigation = document.querySelector(".navigation");
+let main = document.querySelector(".main");
+
+toggle.onclick = function () {
+  navigation.classList.toggle("active");
+  main.classList.toggle("active");
+};
+
+    </script>
+
+
+    
+</body>
+</html>

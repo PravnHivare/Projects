@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      background-color: #f3f4f6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    .formbold-mb-5 {
+      margin-bottom: 20px;
+    }
+    .formbold-pt-3 {
+      padding-top: 12px;
+    }
+    .formbold-form-label {
+      display: block;
+      font-weight: 500;
+      font-size: 16px;
+      color: #07074d;
+      margin-bottom: 12px;
+    }
+    .formbold-form-label-2 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .formbold-form-input {
+      width: 100%;
+      padding: 12px 24px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      background: white;
+      font-weight: 500;
+      font-size: 16px;
+      color: #0a0a0a;
+      outline: none;
+      resize: none;
+    }
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .formbold-btn {
+      text-align: center;
+      font-size: 16px;
+      border-radius: 6px;
+      padding: 14px 32px;
+      border: none;
+      font-weight: 600;
+      background-color: #6a64f1;
+      color: white;
+      width: 100%;
+      cursor: pointer;
+    }
+    .formbold-btn:hover {
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .flex {
+      display: flex;
+    }
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+    .w-full {
+      width: 100%;
+    }
+    @media (min-width: 540px) {
+      .sm\:w-half {
+        width: 50%;
+      }
+    }
+  </style>
+   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+   <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+   <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+   <link rel="manifest" href="assets/img/favicons/manifest.json">
+</head>
+<body>
+   <div class="container">
+    <form action="/appointment" method="POST">
+        <div class="formbold-mb-5">
+        <label for="name" class="formbold-form-label">Patient Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Full Name"
+          class="formbold-form-input"
+          required
+        />
+      </div> 
+      <div class="formbold-mb-5">
+        <label for="name" class="formbold-form-label">Age</label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          placeholder="Age"
+          class="formbold-form-input"
+          required
+        />
+      </div>
+      <div class="formbold-mb-5">
+        <label for="contactNumber" class="formbold-form-label">Phone Number</label>
+        <input
+          type="text"
+          name="contactNumber"
+          id="contactNumber"
+          placeholder="Enter your phone number"
+          class="formbold-form-input"
+          required
+        />
+      </div>
+      <div class="formbold-mb-5">
+        <label for="email" class="formbold-form-label" >Email Address</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email"
+          class="formbold-form-input"
+          required
+        />
+      </div>
+      <div class="flex flex-wrap formbold--mx-3">
+        <div class="w-full sm:w-half formbold-px-3">
+          <div class="formbold-mb-5 w-full">
+            <label for="appointmentDate" class="formbold-form-label">Date</label>
+            <input
+              type="date"
+              name="appointmentDate"
+              id="appointmentDate"
+              class="formbold-form-input"
+            />
+          </div>
+        </div>
+        <div class="w-full sm:w-half formbold-px-3">
+          <div class="formbold-mb-5">
+            <label for="time" class="formbold-form-label">Time</label>
+            <select id="appointmentTime" name="appointmentTime" required class="formbold-form-input">
+              <option value="11:00">11:00 AM - 12:00 PM</option>
+              <option value="12:00">12:00 PM - 01:00 PM</option>
+              <option value="13:00">01:00 PM - 02:00 PM</option>
+              <option value="14:00">02:00 PM - 03:00 PM</option>
+              <option value="15:00">03:00 PM - 04:00 PM</option>
+              <option value="16:00">04:00 PM - 05:00 PM</option>
+              <option value="17:00">05:00 PM - 06:00 PM</option>
+              <option value="18:00">06:00 PM - 07:00 PM</option>
+              <option value="19:00">07:00 PM - 08:00 PM</option>
+              <option value="20:00">08:00 PM - 09:00 PM</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="formbold-mb-5 formbold-pt-3">
+        <label class="formbold-form-label formbold-form-label-2" for="Address">
+          Address Details
+        </label>
+        <div class="flex flex-wrap formbold--mx-3">
+          <div class="w-full sm:w-full formbold" >
+            <div class="formbold-mb-5">
+              <input
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Enter your address"
+                class="formbold-form-input"
+                style="height: 100px;"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="formbold-mb-5">
+        <label for="Reason for Treatment" class="formbold-form-label">Reason For Treatment</label>
+        <input
+          type="text"
+          name="appointmentDesc"
+          id="appointmentDesc"
+          class="formbold-form-input"
+          placeholder="Enter a description for the appointment"
+          style="height: 100px;"
+          required
+        />
+      </div>
+
+      <div>
+        <button type="submit" class="formbold-btn" id="payButton">Book Appointment</button>
+      </div>
+    </form>
+  </div>
+  <!-- Include jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Include Razorpay Checkout.js -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+  
+  <script>
+  $(document).ready(function() {
+    // Bind checkAvailability function to change event of appointmentDate input
+    $('#appointmentDate').change(checkAvailability);
+
+    function checkAvailability() {
+      const selectedDate = document.getElementById("appointmentDate").value;
+
+      // AJAX request to fetch existing appointments for the selected date
+      $.post(`/check-availability`, { appointmentDate: selectedDate }, function(response) {
+        const bookedSlots = response.bookedSlots;
+        const timeSlots = document.getElementById("appointmentTime").options;
+
+        // Enable all options first
+        for (let i = 0; i < timeSlots.length; i++) {
+          timeSlots[i].disabled = false;
+          // Reset the style to default
+          timeSlots[i].style.color = "#0a0a0a";
+        }
+
+        // Disable the booked time slots
+        for (const slot of bookedSlots) {
+          const option = document.querySelector(`#appointmentTime option[value='${slot}']`);
+          if (option) {
+            option.disabled = true;
+            // Optionally, you can style the disabled options to appear in grey
+            option.style.color = "grey";
+          }
+        }
+      });
+    }
+  });
+     
+
+    $('#payButton').click(function(event) {
+  event.preventDefault();
+
+  const name = $('#name').val(); 
+  const age = $('#age').val();
+  const email = $('#email').val();
+  const phoneNumber = $('#contactNumber').val(); // Get the phone number value
+  const address = $('#address').val();
+  const appointmentDesc = $('#appointmentDesc').val();
+  const appointmentDate = $('#appointmentDate').val();
+  const appointmentTime = $('#appointmentTime').val();
+  const amount = 599; // You can set the amount dynamically based on your requirements
+
+  if (!phoneNumber.trim()) { // Check if phone number is empty or whitespace
+    alert("Phone Number is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  } 
+  if (!name.trim()) { // Check if phone number is empty or whitespace
+    alert("Name is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  } 
+  if (!age.trim()) { // Check if phone number is empty or whitespace
+    alert("Age is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  } 
+
+  if (!email.trim()) { // Check if phone number is empty or whitespace
+    alert("Email is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  } 
+
+  
+  if (!address.trim()) { // Check if phone number is empty or whitespace
+    alert("Address is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  }  
+
+  if (!appointmentDesc.trim()) { // Check if phone number is empty or whitespace
+    alert("Reason is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  } 
+
+  if (!appointmentDate.trim()) { // Check if phone number is empty or whitespace
+    alert("appointment Date is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  } 
+
+  if (!appointmentTime.trim()) { // Check if phone number is empty or whitespace
+    alert("appointment Time is required to book the appointment.");
+    return; // Stop further execution if phone number is empty
+  }
+
+
+
+  // Create Razorpay order
+  $.post('/create-order', { amount }, function(response) {
+    const options = {
+      key: 'rzp_live_t56hTwXyLOsSBg', // Replace with your Razorpay API Key
+      amount: response.amount,
+      currency: 'INR',
+      name: 'NextWellness', // Replace with your Company Name
+      description: 'Appointment Payment',
+      order_id: response.id,
+      handler: function(response) {
+        // Send payment ID and order ID to server for verification
+        $.post('/verify-payment', {
+          paymentId: response.razorpay_payment_id,
+          orderId: response.razorpay_order_id,
+          signature: response.razorpay_signature,
+          name: name, 
+          age:age,
+          email: email,
+          contactNumber: phoneNumber, // Use the phone number variable
+          address: address,
+          appointmentDesc: appointmentDesc,
+          appointmentDate: appointmentDate,
+          appointmentTime: appointmentTime
+        }, function(result) {
+          alert(result.message);
+          if (result.status === 'success') {
+            // Payment successful, you can redirect or do further actions
+          } else {
+            // Payment failed
+          }
+        });
+      },
+      prefill: {
+        name: name,
+        email: email
+      },
+      theme: {
+        color: '#283779'
+      }
+    };
+
+    const rzp1 = new Razorpay(options);
+    rzp1.open();
+  });
+});
+
+  </script>
+</body>
+</html>

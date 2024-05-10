@@ -1,0 +1,29 @@
+<!-- book-appointment.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+</head>
+<body>
+    <h1>Book Appointment</h1>
+    <!-- Display total sessions -->
+    <p>Total Sessions: <%= totalSessions %></p>
+    <!-- Display remaining sessions -->
+    <p>Remaining Sessions: <%= remainingSessions %></p>
+    <form action="/book-appointment" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="contact">Contact Number:</label><br>
+        <input type="text" id="contact" name="contact"><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date"><br>
+        <label for="time">Time:</label><br>
+        <input type="time" id="time" name="time"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

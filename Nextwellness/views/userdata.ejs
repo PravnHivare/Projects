@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="product.css">  
+   
+   <style>
+    .image{
+        height: 50px; 
+        width: 50px; 
+        position: relative;
+        bottom: -10px;
+    } 
+    table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .edit-input {
+            display: none;
+        } 
+        /* Style the select dropdown */
+select#plan {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/* Style the options within the dropdown */
+select#plan option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style the dropdown when it's focused */
+select#plan:focus {
+    outline: none;
+    border-color: #007bff; /* Change to your desired focus color */
+    box-shadow: 0 0 5px #007bff; /* Change to your desired focus shadow */
+} 
+.button-link {
+        display: inline-block;
+        padding: 10px 20px; /* Padding for space inside the button */
+        background-color: #007BFF; /* Background color */
+        color: #FFFFFF; /* Text color */
+        text-decoration: none; /* Remove underline */
+        border-radius: 5px; /* Rounded corners */
+        border: none; /* No border */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-weight: bold; /* Bold text */
+        transition: background-color 0.3s; /* Transition for hover effect */
+    }
+
+    /* Add hover effect */
+    .button-link:hover {
+        background-color: #0056b3; /* Darker background on hover */
+    }
+   </style> 
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+    <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                         <img class="image" src="Logo.png" alt="">
+                        </span>
+                        <span class="title">NextWellness</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashbord</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-product">
+                        <span class="icon">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Products<span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-treatment">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Treatments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/record">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">View Appointments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/users">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+             
+                <!--<li>
+                    <a href="/sub">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Subscription</span>
+                    </a>
+                </li>-->  
+
+                <li>
+                    <a href="/book-session">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Book session</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </span>
+                        <span class="title">sign out</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="main">  
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div> 
+            <div class="search">
+                <label for="search">
+                    <input type="text" id="searchInput" placeholder="Search here">
+                    <ion-icon name="search-outline" onclick="search()"></ion-icon>
+                </label>
+            </div>
+            <div class="user">
+                <img src="Logo.png" alt="">
+            </div>
+        </div>
+   
+    <h1>Users Data</h1>
+    
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th><span>Name</span></th>
+                <th><span>Email Address</span></th>
+                <th><span>Contact Number</span></th>
+                <th><span>Date of Birth</span></th>
+                <th><span>Address</span></th> 
+                <th><span>Edit</span></th>
+                <th><span>Delete</span></th> 
+
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <% data4.forEach(item => { %>
+                <tr>
+                    <td><span class="editable"><%= item.Name %></span><input type="text" class="edit-input" value="<%= item.Name %>" ></td>
+                    <td><span class="user-email"><%= item.email %></span></td>
+                    <td><span class="editable"><%= item.ContactNumber %></span><input type="number" class="edit-input" value="<%= item.ContactNumber %>"></td>
+                    <td><span class="editable"><%= item.DOB %></span><input type="date" class="edit-input" value="<%= item.DOB %>"></td> 
+                    <td><span class="editable"><%= item.Address %></span><input type="text" class="edit-input" value="<%= item.Address %>"></td>
+                    <td>
+                        <button class="btn btn-success edit-btn" style="background-color: skyblue;">Edit</button>
+                        <button class="btn btn-success save-btn" style="display: none; background-color: green;" type="submit">Save</button>
+                    </td>       
+                    <td>
+                        <form style="display: inline;" action="/users/delete/<%= item.email %>" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button style="cursor: pointer; background-color: red;" type="submit" class="btn btn-success ml-2">Delete</button>
+                        </form>
+                    </td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            <% }); %>
+        </tbody>
+    </table> 
+</div>
+<div>Total User Count: <span id="totalUserRowCount"></span></div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+// Add event listeners to all Edit buttons
+const editButtons = document.querySelectorAll('.edit-btn');
+editButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const row = this.closest('tr');
+        const inputs = row.querySelectorAll('.edit-input');
+        const spans = row.querySelectorAll('.editable');
+        const editBtn = row.querySelector('.edit-btn');
+        const saveBtn = row.querySelector('.save-btn');
+
+        // Toggle visibility of spans and inputs
+        spans.forEach(span => span.style.display = 'none');
+        inputs.forEach(input => input.style.display = 'inline-block');
+
+        // Toggle visibility of Edit and Save buttons
+        editBtn.style.display = 'none';
+        saveBtn.style.display = 'inline-block';
+    });
+});
+
+// Add event listeners to all Save buttons
+const saveButtons = document.querySelectorAll('.save-btn');
+saveButtons.forEach(btn => {
+    btn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission behavior
+        
+        const row = this.closest('tr');
+        const inputs = row.querySelectorAll('.edit-input');
+        const spans = row.querySelectorAll('.editable');
+        const editBtn = row.querySelector('.edit-btn');
+        const saveBtn = row.querySelector('.save-btn');
+        
+        // Get the email associated with this row
+        const userEmail = row.querySelector('.user-email').textContent;
+
+        // Create an object to hold updated data
+        const updatedData = {
+            Name: inputs[0].value,
+            email: userEmail, // Include the email in the data
+            ContactNumber: inputs[1].value,
+            DOB: inputs[2].value,
+            Address: inputs[3].value,
+        };
+
+        // Send a POST request to update the data
+        fetch(`/users/edit/${userEmail}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result); // Log the server response
+            // You can update the client-side display here if needed
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        // Update span content with input values (for immediate UI feedback)
+        spans.forEach((span, index) => {
+            span.textContent = inputs[index].value;
+        });
+
+        // Toggle visibility of spans and inputs
+        spans.forEach(span => span.style.display = 'inline-block');
+        inputs.forEach(input => input.style.display = 'none');
+
+        // Toggle visibility of Edit and Save buttons
+        editBtn.style.display = 'inline-block';
+        saveBtn.style.display = 'none';
+    });
+});
+
+
+
+});
+</script>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    // add hovered class to selected list item
+
+// Menu Toggle
+let toggle = document.querySelector(".toggle");
+let navigation = document.querySelector(".navigation");
+let main = document.querySelector(".main");
+
+toggle.onclick = function () {
+navigation.classList.toggle("active");
+main.classList.toggle("active");
+};
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to update total row count in local storage
+        function updateTotalRowCount() {
+            const totalRowsElement = document.getElementById('totalUserRowCount');
+            const totalUserRowCount = document.querySelectorAll('#dataTable tbody tr').length;
+            totalRowsElement.textContent = totalUserRowCount;
+            localStorage.setItem('totalUserRowCount', totalUserRowCount);
+        }
+
+        // Calculate and store total rows on page load
+        updateTotalRowCount();
+
+        // Add event listener to all Delete buttons
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const userEmail = row.querySelector('.editable-email').textContent;
+
+                // Remove row from HTML table
+                row.remove();
+
+                // Update total row count
+                updateTotalRowCount();
+
+                // Optionally, send AJAX request to server to delete from database
+                fetch(`/users/delete/${userEmail}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.text())
+                .then(result => {
+                    console.log(result); // Log the server response
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    });
+</script> 
+
+<script>
+    function search() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("dataTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (var j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                        break; // Break the inner loop if match found in any cell
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

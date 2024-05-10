@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions</title>
+    <link href="assets/css/theme.css" rel="stylesheet" />
+    <style>
+        /* Base styles */
+        .session-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .session-card {
+            flex: 0 0 calc(50% - 40px);
+            background-color: #59f964;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+           
+        }
+        .profile-img {
+          border-radius: 50%;
+          width: 50px; /* Adjust size as needed */
+          height: 50px; /* Adjust size as needed */
+      }
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            .session-card {
+                flex: 0 0 calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .session-card {
+                flex: 0 0 calc(100% - 30px);
+                margin-left: 10px;
+            }
+        }
+    </style> 
+     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/nextwellness.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+     <link rel="icon" type="image/png" sizes="16x16" hhref="assets/img/gallery/nextwellness.png">
+     <link rel="manifest" href="site.webmanifest">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/nextwellness.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/nextwellness.png">
+     <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/nextwellness.png">
+     <link rel="manifest" href="assets/img/favicons/manifest.json">
+</head>
+<body style="padding-top: 120px;">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" style="background-color: #73d5f3;">
+        <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/icons/MainLogo.png" width="118" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#/home">About Us</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="/home">Services</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="/home">Products</a></li> 
+              <li class="nav-item px-2"><a class="nav-link" href="/invoice">Invoice</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/home" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Treatment</a>
+                <ul class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+                  <li class="dropdown-item" onmouseover="showAdditionalItem('additionalItem1')" onmouseout="hideAdditionalItem('additionalItem1')">Acupuncture Therapy
+                    <a id="additionalItem1" class="additionalItem">
+                      Electro Acupuncture
+                    </a>
+                </li>
+                <li class="dropdown-item" onmouseover="showAdditionalItem('additionalItem2')" onmouseout="hideAdditionalItem('additionalItem2')">Acupressure Therapy
+                    <a id="additionalItem2" class="additionalItem">
+                      Refloxology
+                    </a>
+                </li>
+                <li class="dropdown-item" onmouseover="showAdditionalItem('additionalItem3')" onmouseout="hideAdditionalItem('additionalItem3')">Cupping Therapy
+                   <div id="additionalItem3" class="additionalItem">
+                    <ul style="list-style: none;">
+                      <li>
+                        <a href="#">Dry Cupping </a>
+                        <br><a href="#">Wet Cupping </a>
+                        <br><a href="#">Glass Cupping </a>
+                        <br><a href="#">Silicone Cupping </a>
+                        <br><a href="#">Hijama Center </a>
+                      </li>
+                 </ul>
+                  </div>
+              </li>
+                  <li><a class="dropdown-item" href="#"> Paralysis Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Frozen Shoulder Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Arthritis Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Knee Pain Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Paralysis Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Infertility in woman and men</a></li>
+                  <li><a class="dropdown-item" href="#"> Frozen Shoulder Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Psycho Therapy</a></li>
+                  <li><a class="dropdown-item" href="#"> Holistic Healing Therapy</a></li>
+                  <li><a class="dropdown-item" href="#"> Hydra Facial</a></li>
+                  <li><a class="dropdown-item" href="#"> HIFU Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Shockwave Therapy</a></li>
+                  <li><a class="dropdown-item" href="#"> Scoliosis Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Varicose Veins Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Breast Cancer Treatment</a></li>
+                  <li><a class="dropdown-item" href="#"> Sciatica Treatment</a></li>
+                </ul>
+            </li>
+              <li class="nav-item px-2"><a class="nav-link" href="#findUs">Shop </a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="/home">Contact</a></li>
+          </ul>
+          <div class="dropdown">
+            <% if (user) { %>
+              <div class="profile">
+                  <img class="profile-img" src="<%= user.picture %>" alt="Profile Picture" id="profile-img">
+              </div>
+              <div class="dropdown-content" id="dropdown-content">
+                  <a href="#">Profile</a>
+                  <a href="#">Settings</a>
+                  <a href="#" id="logout">Logout</a>
+                  <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                      <!-- Add any hidden inputs or other form elements here if needed -->
+                  </form>
+              </div>
+          <% } else { %>
+              <!-- Your else content here -->
+              <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="/login">Sign In</a>
+          <% } %>
+          
+          </div>
+          </div>
+        </div>
+      </nav>
+    <h1>Your Sessions</h1>
+    
+    <div class="session-container">
+        <% for (let i = 1; i <= sessionCount; i++) { %>
+            <div class="session-card">
+                <h2>Session <%= i %></h2>
+                <!-- Add session card content here -->
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#logout').click(function(e) {
+                e.preventDefault(); // Prevent the default link action
+                $('#logout-form').submit(); // Submit the form when "Logout" is clicked
+            });
+        });
+    </script>
+    
+        <script src="vendors/@popperjs/popper.min.js"></script>
+        <script src="vendors/bootstrap/bootstrap.min.js"></script>
+        <script src="vendors/is/is.min.js"></script>
+        <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+        <script src="vendors/fontawesome/all.min.js"></script>
+        <script src="assets/js/theme.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&amp;display=swap" rel="stylesheet">
+    
+    
+
+</body>
+</html>

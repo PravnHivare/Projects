@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Connect to MongoDB using the URI
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://SmartSense_Technologies:SmartSense0811@cluster0.ydajhjs.mongodb.net/nextwellness", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/nextwellness", { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connected to MongoDB");
     })
